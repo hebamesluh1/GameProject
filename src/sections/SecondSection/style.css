@@ -1,0 +1,7 @@
+.second-section{
+    display: flex;
+    justify-content: space-between;
+}
+.second-section .friends{
+    margin-left: 14px;
+}

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Gayathri:wght@100;400;700&family=Inter:wght@100;200;300;400;600;700&family=Roboto:wght@300;500&display=swap');
+.content-left-section{
+    background:url(../../assets/image/background.png);
+    background-position: 50%;
+    background-size: cover;
+}
+
+.content-left-section .leftSide{
+    background: #1565d8;
+    background-size: cover;
+    height: 90.5%;
+    opacity: .9;
+    padding: 58px 82px;
+}
+.content-left-section .leftSide .quotation{
+    display: block;
+    font-family: 'Gayathri',sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    color: #00DAF7;
+    margin-top: 218px;
+}
+.content-left-section p{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 38px;
+    color: #FFFFFF;
+    margin-top:330px;
+}
+.content-left-section .signature{
+    display: block;
+    margin-top:60px;
+}
+.content-left-section .img-edge{
+    display: flex;
+    flex-direction: row-reverse;
+}
+/* form style  */
+form .Back{
+    border: none;
+    background: transparent;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #8692A6;
+    cursor: pointer;
+}
+.content-right-section{
+    padding: 75px 35px;
+}
+.content-right-section .form-content{
+    padding: 20px 160px;
+}
+.content-right-section svg{
+    margin-right: 10px;
+}
+.form-content h1{
+    width: 415px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+    color: #000000;
+}
+.form-content .title p{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    color: #8692A6;
+    margin-bottom: 16px;
+}
+.check-box{
+    padding-bottom: 33px;
+    padding-top:24px;
+}
+.check-box label{
+    display: flex;
+    align-items: center;
+}
+.check-box input{
+    margin-right: 15px;
+    width: 18px;
+    height: 18px;
+}
+.form-content .login-btn{
+    width: 100%;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    height:64px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    border-radius: 6px;
+    border: none;
+    margin-top: 32px;
+    padding:30px  50px ;
+    
+}
+.form-content .login-btn span{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    color: #000000;
+    width: 50%;
+    transform: translateX(50%);
+}
+.pass-strength{
+        background-color: #ddd;
+        border-radius: 5px;
+        height:7px;
+        margin-top: 10px;
+        width: 100%;
+}
+/* responsive style  */
+@media(max-width:1344px){
+    .content-left-section{
+        display: none;
+    }
+}
+
+

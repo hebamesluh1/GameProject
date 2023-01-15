@@ -1,0 +1,19 @@
+.card{
+    position: relative;
+    width: fit-content;
+}
+.card img{
+    border-radius: 60px;
+}
+.card p{
+    font-family: 'Gilroy',sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    text-align: right;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 0;
+    padding-left: 130px;
+}

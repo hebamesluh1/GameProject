@@ -1,0 +1,12 @@
+.btn{
+    background: #1565d8;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-family: Inter;
+    font-style: normal;
+    height: 64px;
+    text-align: center;
+    width:100%;
+    padding: 0 30px;
+}

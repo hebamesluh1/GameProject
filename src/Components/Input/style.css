@@ -1,0 +1,28 @@
+.Input-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+}
+.Input-box input{
+    height: 64px;
+    border: 1px solid #8692A6;
+    border-radius: 6px;
+    padding: 0 30px;
+}
+.Input-box .empty{
+    outline:2px solid #f00;
+    border:none;
+}
+.Input-box input::placeholder{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8692A6;
+}
+.Input-box label{
+    margin-bottom: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #696F79;
+}

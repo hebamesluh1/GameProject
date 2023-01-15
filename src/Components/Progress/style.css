@@ -1,0 +1,63 @@
+/* progress password */
+#progress{
+    height: 7px;
+    border-radius: 8px;
+    margin-top: 8px;
+}
+
+.bad{
+    width: 25%;
+    background: rgb(255, 0, 0);
+    height: 7px;
+    border-radius: 8px;
+    transition: .5s;
+
+}
+.weak{
+    width: 50%;
+    background: rgb(198, 224, 1);
+    height: 7px;
+    border-radius: 8px;
+    transition: .5s;
+
+}
+.medium{
+    width: 75%;
+    background: rgb(249, 204, 3);
+    height: 7px;
+    border-radius: 8px;
+    transition: .5s;
+
+}
+.strong{
+    width: 100%;
+    background:#0f0;
+    height: 7px;
+    border-radius: 8px;
+    transition: .5s;
+
+}
+.address{
+    margin: 0;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+}
+.worse::after{
+    content:'Is very weak but you know you can do it better';
+    color:rgb(255, 0, 0);
+}
+.notBad::after{
+    content:'Not bad but you know you can do it better';
+    color:rgb(198, 224, 1);
+}
+.better::after{
+    content: 'Good but you can do it better';
+    color:rgb(249, 204, 3);
+}
+.TheBest::after{
+    content: 'Very Good ,The best';
+    color:#0f0;
+}

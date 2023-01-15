@@ -1,0 +1,58 @@
+.main-trophy{
+    position: relative;
+    padding-right: 25px;
+}
+.cup{
+    position: absolute;
+    top: -10px;
+    right: 25px;
+    z-index: 2;
+}
+.circle{
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 27px 10px #32fb00, inset 0 0 36px 32px rgb(50 251 0 / 68%);
+}
+.last-text{
+    font-family: 'Gilroy',sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: absolute;
+    bottom: 0;
+    padding: 24px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+radial-gradient(97.57% 210.75% at 0.9% 2.98%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    width: 93%;
+    padding-right: 0;
+    border-radius: 0 0 40px 40px;
+    margin-bottom: 4px;
+}
+.last-text span{
+    display: block;
+    font-size: 19px;
+}
+.top-text{
+    font-family: 'Gilroy',sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 31px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    position: absolute;
+    top: 0;
+    right: 200px;
+}
+.top-text span{
+    display: block;
+    font-size: 15px;
+}

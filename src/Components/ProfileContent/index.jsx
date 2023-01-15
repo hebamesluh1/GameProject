@@ -1,0 +1,121 @@
+import React, { Component } from 'react';
+import axios from "axios";
+
+import './style.css';
+
+import sms from './../../assets/image/sms.png';
+import frame from './../../assets/image/frame.png'
+import PassInput from '../PassInput';
+
+export default class ProfileContent extends Component {
+    state = {
+        username: "",
+        email: "",
+        admin: "",
+        isLoading: true,
+    };
+    async componentDidMount() {
+    const token = localStorage.getItem("token");
+    const res = await axios.get("https://react-tt-api.onrender.com/api/users/profile", {
+        headers: {
+        Authorization: `Bearer ${token}`,
+        },
+    });
+
+    this.setState({
+        username: res.data.name,
+        email: res.data.email,
+        admin: res.data.isAdmin,
+        isLoading: false,
+    });
+    }
+    render() {
+        return (
+        <div className='Profile-Content'>
+            <h2>MY PROFILE</h2>
+            {this.state.isLoading ? (
+                <div style={{
+                    margin:"20% 40%",
+                    fontSize:"25px"
+                }}>
+                    "Loading..."
+                </div>
+                ) : (
+            <div className='profile-box'>
+                <div>
+                    <div className="account-information">
+                        <div className='left-block'>
+                            <h3>Account information</h3>
+                            <div className='block email-block'>
+                                <img src={sms} alt="sms" className='left-img' />
+                                <input type="email" placeholder={this.state.email}/>
+                            </div>
+                            <div>
+                                <h3>Old Password</h3>
+                                <PassInput placeholder="***************"/>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Communcation proferonce</h3>
+                            <div className='checkbox-group'>
+                                <div className='checkbox-block'>
+                                    <input type="checkbox" checked/>
+                                    <p>Lorem ipsum dolor sit amet Lorem ipsum dolor </p>
+                                </div>
+                                <div className='checkbox-block'>
+                                    <input type="checkbox" checked/>
+                                    <p>Lorem ipsum dolor sit amet Lorem ipsum dolor </p>
+                                </div>
+                            </div>
+                            <div className='pass-block'>
+                                <PassInput placeholder="Enter new password"/>
+                            </div>
+                            <div className='pass-block'>
+                                <PassInput placeholder="repeat new password"/>
+                            </div>
+                        </div>
+                    </div>
+                    <button>update password</button>
+                </div>
+
+                <div className="line-profile"></div>
+
+                <div>
+                <h3>Personal Information</h3>
+                    <div className="personal-information">
+                        <div>
+                            <div className='block'> 
+                                <h4>First Name</h4>
+                                <img src={frame} alt="frame" className='left-img user'/>
+                                <input type="text" placeholder={this.state.name} />
+                            </div>
+                            <div>
+                                <h4>Date of Birth</h4>
+                                <input type="date"
+                                value="2018-07-22"
+                                min="2018-01-01" max="2018-12-31"/>
+                            </div>
+                        </div>
+
+                        <div>
+                        <div className='block'>
+                            <h4>Admin</h4>
+                            <input type="text" placeholder={this.state.admin} />
+                        </div>
+                        <div>
+                            <h4>Gender</h4>
+                            <select>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+                    <button>Save Change</button>
+                </div>
+            </div>)}
+
+        </div>
+        )
+    }
+}
