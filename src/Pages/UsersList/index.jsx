@@ -9,6 +9,7 @@ import './style.css';
 export default class UserList extends Component {
     state = {
         users: [],
+        admin:'',
         isLoading: true,
         isDeleting: false,
     };
@@ -31,17 +32,13 @@ export default class UserList extends Component {
         console.log(error);
         }
     }
-    // handleDelete = async (id) => {
-    //     await axios.delete(`https://react-tt-api.onrender.com/api/users/${id}`, {
-    //     headers: {
-    //         Authorization: `Bearer ${localStorage.getItem("token")}`,
-    //     },
-    //     });
-    //     this.setState({
-    //     allUsers: this.state.allUsers.filter((user) => user._id !== id),
-    //     });
-    //     this.setState({ isDeleting: false });
-    //     }
+    handleDelete = async (id) => {
+        await axios.delete(`https://react-tt-api.onrender.com/api/users/${id}`, {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        });
+        }
 
     render() {
         return (
@@ -68,19 +65,19 @@ export default class UserList extends Component {
                                 <th>delete</th>
                             </tr>
                             
-                                {this.state.users.map((user)=>{
-                                    <tr key={user.id}>
-                                        <td>{user.id}</td>
+                                {this.state.users.map((user,index) => (
+                                    <tr key={user._id}>
+                                        <td>{user._id}</td>
                                         <td>{user.name}</td>
-                                        <td>{user.isAdmin}</td>
-                                        <td><Link to='/userDetails'>
+                                        <td>{user.isAdmin?"Yes":"No"}</td>
+                                        <td><Link to={`/usersList/${(user._id)}`}>
                                         <img src={details} alt="details" width='25px'/>
                                         user details</Link></td>
                                         <td>
-                                        <button className="delete">Delete</button>
+                                        <button className="delete" onClick={() => this.deleteUser(index)}>Delete</button>
                                         </td>
                                     </tr>
-                                    })}
+                                    ))}
                         </table>
                     </div>
                 )}

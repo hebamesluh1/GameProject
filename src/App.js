@@ -47,10 +47,16 @@ export default class App extends Component {
             [
               <Route index="true" element={<Home/>}/>,
               <Route path='userList' element={<UsersList/>}/>,
-              <Route path='userDetails' element={<UserDetails/>}/>,
               <Route path='profile' element={<Profile/>}/>,
             ]
           }/>
+          <Route
+              path="usersList/:id"
+              element={
+                this.state.isAdmin ? <UserDetails /> : <Navigate to="/dashboard" />
+              }
+          />
+          
           <Route path='/logIn' element={
             <>{
               this.state.isAuthorized?

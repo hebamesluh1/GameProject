@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import './style.css';
 import axios from "axios";
 import Bar from "../../Components/Bar";
+import Header from "../../sections/Header";
 
 
 export default function UserDetails() {
@@ -43,6 +44,7 @@ class Details extends Component {
         return (
             <div className="user-details">
                 <Bar />
+                <Header />
                 <main>
                     {this.state.isLoading?(
                     <div style={{
