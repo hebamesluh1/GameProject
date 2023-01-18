@@ -1,0 +1,22 @@
+.user-details{
+    display: grid;
+    grid-template-columns: 5% 2% 92%;
+    align-items: center;
+}
+.user-details table{
+    width: 50%;
+    margin: 3% auto;
+    font-size: 25px;
+    border-collapse: collapse;
+}
+.user-details tr:hover{
+    background-color: rgb(201, 201, 201);
+}
+.user-details th{
+    width: 50%;
+    border:1px solid #ddd
+}
+.user-details td{
+    text-align: center;
+    border:1px solid #ddd
+}

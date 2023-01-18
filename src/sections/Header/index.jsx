@@ -8,11 +8,11 @@ import './style.css';
 export default class Header extends Component {
     state={
         showMenu:false,
-        name:''
+        name:'',
     }
     componentDidMount() {
-    const username = localStorage.getItem("name");
-    this.setState({ username });
+    const name = localStorage.getItem("name");
+    this.setState({ name:name });
     }
     toggleShowMenu= () => {
         this.setState(prevState => ({ showMenu: !prevState.showMenu }));
@@ -24,7 +24,7 @@ export default class Header extends Component {
                 <p>Welcome back,<span>{this.state.name}</span></p>
                 <img src={avatar} alt="avatar"/>
             </div>
-            {this.state.showMenu?(<Menu/>):''}
+            {this.state.showMenu?(<Menu logout={this.props.logout}/>):''}
         </header>
         )
     }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { useParams } from "react-router-dom";
+import './style.css';
 import axios from "axios";
 import Bar from "../../Components/Bar";
 
@@ -9,13 +10,13 @@ export default function UserDetails() {
     return <Details id={id} />;
     }
 
-    class Details extends Component {
+class Details extends Component {
     state = {
         id: "",
         name: "",
         email: "",
         admin:"",
-        isLoading: true,
+        isLoading:true,
     };
 
     async componentDidMount() {
@@ -40,21 +41,39 @@ export default function UserDetails() {
 
     render() {
         return (
-        <ul className="users_details">
-            <Bar/>
-            <h3>{this.state.name} Details: </h3>
-
-            {this.state.isLoading ? (
-            "Loading..."
-            ) : (
-            <li className="details">
-                <p>ID :{this.state.id}</p>
-                <p>Name :{this.state.name}</p>
-                <p>Email :{this.state.email}</p>
-                <p>Admin :{this.state.admin}</p>
-            </li>
-            )}
-        </ul>
+            <div className="user-details">
+                <Bar />
+                <main>
+                    {this.state.isLoading?(
+                    <div style={{
+                    margin:"20% 40%",
+                    fontSize:"25px"
+                    }}>
+                    "Loading..."
+                    </div>
+                    ):(
+                        <table>
+                        <tr>
+                            <th>id</th>
+                            <td>{this.state.id}</td>
+                        </tr>
+                        <tr>
+                            <th>name</th>
+                            <td>{this.state.name}</td>
+                        </tr>
+                        <tr>
+                            <th>email</th>
+                            <td><a href="mailto:">{this.state.email}</a></td>
+                        </tr>
+                        <tr>
+                            <th>admin</th>
+                            <td>{this.state.admin}</td>
+                        </tr>
+                    </table>
+                    )}
+                </main>
+            </div>
         );
     }
 }
+// export default UserDetails;

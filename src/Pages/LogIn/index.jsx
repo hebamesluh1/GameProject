@@ -64,34 +64,38 @@ export default class LogIn extends Component {
     handleSubmit=async(e)=>{
         e.preventDefault();
         this.setState({ isLoading: true });
-        try {
-            await this.schema.validate(
-                { email: this.state.email, password: this.state.password },
-                { abortEarly: false }
-            );
-        
-            const { data } = await axios.post('https://react-tt-api.onrender.com/api/users/login', {
-                email: this.state.email,
-                password: this.state.password,
+        this.schema
+        .validate(
+            {
+                email: this.state.email, password: this.state.password 
+            },
+            { abortEarly: false }
+        )
+        .then(async ({ email, password }) => {
+            const res = await axios.post('https://react-tt-api.onrender.com/api/users/login', {
+                email: email,
+                password,
             });
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("email", data.email);
-            localStorage.setItem("username", data.name);
-            localStorage.setItem("Admin", data.isAdmin);
-        
-            this.props.login();
-            } catch (error) {
-            if (error.errors) {
-                this.setState({ errors: error.errors });
-            } else {
-                this.setState({ errors: [error.message] });
+            console.log(res.data.email)
+            if (res) {
+                localStorage.setItem('token', res.data.token);
+                localStorage.setItem('name', res.data.name);
+                localStorage.setItem("admin", res.data.isAdmin);
+                if (res.data.isAdmin){this.props.admin();}
+                this.props.login();
             }
-            } finally {
-            this.setState({ isLoading: false });
-            }
-        };
+            this.setState({isValid:true,})
+        }).catch (e =>{
+            const validationErrors = {};
+            e.inner.forEach(err => {
+            validationErrors[err.path] = err.message;
+            });
+            this.setState({ errors: validationErrors });
+            console.log("e");
+            this.setState({isValid:false,})
+        }).finally(() => this.setState({ isLoading: false }));
 
-    
+    };
     //when click on the eye show password 
     toggleShowPassword = () => {
         this.setState(prevState => ({ showPassword: !prevState.showPassword }));
@@ -176,7 +180,7 @@ export default class LogIn extends Component {
                         <div className="login-btn">
                                 <Btn 
                                 isValid={this.state.isValid} 
-                                link='/home'>Login
+                                link='/dashboard'>{this.state.isLoading ? 'Loading...' : 'Login'}
                                 </Btn>
                         </div>
 

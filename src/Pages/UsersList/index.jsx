@@ -1,74 +1,92 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Bar from '../../Components/Bar';
+import Header from './../../sections/Header/index';
+import details from '../../assets/image/details.png';
+import './style.css';
 
 export default class UserList extends Component {
     state = {
-        name: "",
-        allUsers: [],
+        users: [],
         isLoading: true,
         isDeleting: false,
     };
 
+    token = localStorage.getItem("token");
     async componentDidMount() {
         try {
-        const name = localStorage.getItem("name");
-        this.setState({ name });
-        const token = localStorage.getItem("token");
-        const res = await axios.get('https://react-tt-api.onrender.com/api/users', {
+        const res = await axios.get(
+            "https://react-tt-api.onrender.com/api/users",
+            {
             headers: {
-            Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${this.token}`,
             },
-        });
+            }
+        );
 
-        this.setState({ allUsers: res.data });
-        this.setState({ isLoading: false });
+        this.setState({ users: res.data });
+        this.setState({isLoading: false});
         } catch (error) {
         console.log(error);
         }
     }
-    handleDelete = async (id) => {
-        await axios.delete(`https://react-tt-api.onrender.com/api/users/${id}`, {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        });
-        this.setState({
-        allUsers: this.state.allUsers.filter((user) => user._id !== id),
-        });
-        this.setState({ isDeleting: false });
-        }
+    // handleDelete = async (id) => {
+    //     await axios.delete(`https://react-tt-api.onrender.com/api/users/${id}`, {
+    //     headers: {
+    //         Authorization: `Bearer ${localStorage.getItem("token")}`,
+    //     },
+    //     });
+    //     this.setState({
+    //     allUsers: this.state.allUsers.filter((user) => user._id !== id),
+    //     });
+    //     this.setState({ isDeleting: false });
+    //     }
 
     render() {
         return (
-        <div>
+        <div className="userList">
             <Bar />
-            <p>{this.state.name}</p>
-            <ol className="users_list">
-            <div className="user_title">All Users</div>
-            {this.state.isLoading
-                ? "Loading .. "
-                : this.state.isDeleting
-                ? "Deleting.."
-                : this.state.allUsers.map((user) => (
-                    <li key={user._id}>
-                    <NavLink to={`${user._id}`}>
-                        <p>{user.email}</p>
-                    </NavLink>
-
-                    <button
-                        className="delete"
-                        onClick={() => this.handleDelete(user._id)}
-                    >
-                        Delete
-                    </button>
-                    </li>
-                ))}
-            </ol>
-
+            <main>
+                <div className="user-list">
+                    <h2>USERS LIST</h2>
+                    {this.state.isLoading ? (
+                    <div style={{
+                    margin:"20% 40%",
+                    fontSize:"25px"
+                    }}>
+                    "Loading..."
+                    </div>
+                ) : (
+                    <div className="user-list-box">
+                        <table>
+                            <tr>
+                                <th>id</th>
+                                <th>username</th>
+                                <th>Admin</th>
+                                <th>user details</th>
+                                <th>delete</th>
+                            </tr>
+                            
+                                {this.state.users.map((user)=>{
+                                    <tr key={user.id}>
+                                        <td>{user.id}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.isAdmin}</td>
+                                        <td><Link to='/userDetails'>
+                                        <img src={details} alt="details" width='25px'/>
+                                        user details</Link></td>
+                                        <td>
+                                        <button className="delete">Delete</button>
+                                        </td>
+                                    </tr>
+                                    })}
+                        </table>
+                    </div>
+                )}
+                </div>
+            </main>
         </div>
         );
     }
-
 }

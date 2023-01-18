@@ -9,10 +9,10 @@ import PassInput from '../PassInput';
 
 export default class ProfileContent extends Component {
     state = {
-        username: "",
+        name: "",
         email: "",
-        admin: "",
-        isLoading: true,
+        isAdmin:false,
+        isLoading: true
     };
     async componentDidMount() {
     const token = localStorage.getItem("token");
@@ -21,11 +21,10 @@ export default class ProfileContent extends Component {
         Authorization: `Bearer ${token}`,
         },
     });
-
     this.setState({
-        username: res.data.name,
+        name: res.data.name,
         email: res.data.email,
-        admin: res.data.isAdmin,
+        isAdmin: res.data.isAdmin?'yes':'no',
         isLoading: false,
     });
     }
@@ -100,7 +99,7 @@ export default class ProfileContent extends Component {
                         <div>
                         <div className='block'>
                             <h4>Admin</h4>
-                            <input type="text" placeholder={this.state.admin} />
+                            <input type="text" placeholder={this.state.isAdmin}/>
                         </div>
                         <div>
                             <h4>Gender</h4>

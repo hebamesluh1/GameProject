@@ -112,9 +112,9 @@ export default class SignUp extends Component {
             if (res) {
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("name", res.data.name);
-                this.setState({ isloading: false });
+                this.setState({ isLoading: false });
                 this.props.login();
-                    }
+            }
             this.setState({isValid:true,})
         }).catch (e =>{
             const validationErrors = {};
@@ -171,7 +171,7 @@ export default class SignUp extends Component {
                         <button 
                         className="Back" 
                         type='button'> 
-                        <Link to='/' style={{color: "#8692a6"}}>
+                        <Link to='/logIn' style={{color: "#8692a6"}}>
                         <FontAwesomeIcon icon={faLessThan} /> 
                         Back 
                         </Link>
@@ -238,7 +238,7 @@ export default class SignUp extends Component {
                                 </div>
 
 
-                                <Btn isValid={this.state.isValid} link='/home'>{this.state.isloading ? "Loading ... " : "Register Account"}</Btn>
+                                <Btn isValid={this.state.isValid} link='/dashboard'>Register Account</Btn>
 
                                 <OrLine />
 

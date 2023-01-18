@@ -6,7 +6,7 @@ import SliderImg from '../../Components/SliderImg';
 export default class Slider extends Component {
     render() {
         return (
-        <div>
+        <div className='slider-content'>
             <H1>NEW GAMES</H1> 
             <SliderImg /> 
         </div>

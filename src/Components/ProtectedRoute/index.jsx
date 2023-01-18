@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Navigate } from "react-router-dom";
-import Home from "../../Pages/Home";
+import { Navigate, Outlet } from "react-router-dom";
+import Header from "../../sections/Header";
 
 export default class ProtectedRoute extends Component {
     render() {
@@ -8,9 +8,8 @@ export default class ProtectedRoute extends Component {
         <div>
             {this.props.isAuthorized ? (
             <>
-                <Home logout={this.props.logout} admin={this.props.admin} />
-
-                {/* <Outlet /> */}
+                <Header logout={this.props.logout}/>
+                <Outlet/>
             </>
             ) : (
             <Navigate to="/logIn" />

@@ -12,7 +12,7 @@ function LogInBtn() {
     const navigate = useNavigate();
 
     function handleClick() {
-        navigate('/');
+        navigate('/logIn');
     }
 
     return (
