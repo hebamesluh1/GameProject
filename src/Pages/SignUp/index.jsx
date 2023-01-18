@@ -40,7 +40,7 @@ export default class SignUp extends Component {
         selected: false,
         errors: {},
         isValid:false,
-        isLoading:false,
+        isLoading:true,
     }
 
 
@@ -238,7 +238,9 @@ export default class SignUp extends Component {
                                 </div>
 
 
-                                <Btn isValid={this.state.isValid} link='/dashboard'>Register Account</Btn>
+                                <Btn isValid={this.state.isValid} link='/dashboard'>
+                                {this.state.isLoading ? 'Loading...' : 'Register Account'}
+                                </Btn>
 
                                 <OrLine />
 

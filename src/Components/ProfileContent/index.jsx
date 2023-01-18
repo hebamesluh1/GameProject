@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-import './style.css';
+
 
 import sms from './../../assets/image/sms.png';
 import frame from './../../assets/image/frame.png'
+
+
 import PassInput from '../PassInput';
+
+
+import './style.css';
+
+
 
 export default class ProfileContent extends Component {
     state = {
@@ -14,6 +21,9 @@ export default class ProfileContent extends Component {
         isAdmin:false,
         isLoading: true
     };
+
+
+
     async componentDidMount() {
     const token = localStorage.getItem("token");
     const res = await axios.get("https://react-tt-api.onrender.com/api/users/profile", {
@@ -28,6 +38,9 @@ export default class ProfileContent extends Component {
         isLoading: false,
     });
     }
+
+
+
     render() {
         return (
         <div className='Profile-Content'>
@@ -47,7 +60,7 @@ export default class ProfileContent extends Component {
                             <h3>Account information</h3>
                             <div className='block email-block'>
                                 <img src={sms} alt="sms" className='left-img' />
-                                <input type="email" placeholder={this.state.email}/>
+                                <input type="email" value={this.state.email}/>
                             </div>
                             <div>
                                 <h3>Old Password</h3>
@@ -57,11 +70,11 @@ export default class ProfileContent extends Component {
                         <div>
                             <h3>Communcation proferonce</h3>
                             <div className='checkbox-group'>
-                                <div className='checkbox-block'>
+                                <div className='checkbox-block' style={{display:"flex",alignItems:"center"}}>
                                     <input type="checkbox" checked/>
                                     <p>Lorem ipsum dolor sit amet Lorem ipsum dolor </p>
                                 </div>
-                                <div className='checkbox-block'>
+                                <div className='checkbox-block' style={{display:"flex",alignItems:"center"}}>
                                     <input type="checkbox" checked/>
                                     <p>Lorem ipsum dolor sit amet Lorem ipsum dolor </p>
                                 </div>
@@ -86,7 +99,7 @@ export default class ProfileContent extends Component {
                             <div className='block'> 
                                 <h4>First Name</h4>
                                 <img src={frame} alt="frame" className='left-img user'/>
-                                <input type="text" placeholder={this.state.name} />
+                                <input type="text"  value={this.state.name} />
                             </div>
                             <div>
                                 <h4>Date of Birth</h4>
@@ -99,7 +112,7 @@ export default class ProfileContent extends Component {
                         <div>
                         <div className='block'>
                             <h4>Admin</h4>
-                            <input type="text" placeholder={this.state.isAdmin}/>
+                            <input type="text" value={this.state.isAdmin}/>
                         </div>
                         <div>
                             <h4>Gender</h4>

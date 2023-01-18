@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Link, NavLink } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Bar from '../../Components/Bar';
-import Header from './../../sections/Header/index';
 import details from '../../assets/image/details.png';
 import './style.css';
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 
 export default class UserList extends Component {
     state = {
@@ -32,12 +33,30 @@ export default class UserList extends Component {
         console.log(error);
         }
     }
-    handleDelete = async (id) => {
-        await axios.delete(`https://react-tt-api.onrender.com/api/users/${id}`, {
-        headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
+
+    handleDelete =(id) => {
+        confirmAlert({
+            title: 'Confirm to submit',
+            message: 'Are you sure want to delete this user',
+            buttons: [
+                {
+                    label: 'Yes',
+                    onClick: async() => {await axios.delete(`https://react-tt-api.onrender.com/api/users/${id}`, {
+                        headers: {
+                            Authorization: `Bearer ${localStorage.getItem("token")}`,
+                        }
+                        })
+                        this.setState({
+                            users: this.state.users.filter((user) => user._id !== id),
+                        })}
+                },
+                {
+                    label: 'No',
+                    onClick: () => '',
+                }
+            ]
         });
+        
         }
 
     render() {
@@ -74,7 +93,7 @@ export default class UserList extends Component {
                                         <img src={details} alt="details" width='25px'/>
                                         user details</Link></td>
                                         <td>
-                                        <button className="delete" onClick={() => this.deleteUser(index)}>Delete</button>
+                                        <button className="delete" onClick={() => this.handleDelete(user._id)}>Delete</button>
                                         </td>
                                     </tr>
                                     ))}

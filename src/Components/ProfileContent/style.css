@@ -42,7 +42,7 @@
 };
 
 .checkbox-block{
-    display: inline-flex;
+    display: flex;
     align-items: center;
 }
 .checkbox-block input{
