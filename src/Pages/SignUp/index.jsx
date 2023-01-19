@@ -40,7 +40,7 @@ export default class SignUp extends Component {
         selected: false,
         errors: {},
         isValid:false,
-        isLoading:true,
+        isLoading:false,
     }
 
 
