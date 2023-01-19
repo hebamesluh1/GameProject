@@ -112,7 +112,6 @@ export default class SignUp extends Component {
             if (res) {
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("name", res.data.name);
-                this.setState({ isLoading: false });
                 this.props.login();
             }
             this.setState({isValid:true,})
@@ -123,7 +122,7 @@ export default class SignUp extends Component {
             });
             this.setState({ errors: validationErrors });
             this.setState({isValid:false,})
-        })
+        }).finally(() => this.setState({ isLoading: false }));
 
     };
 
