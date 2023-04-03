@@ -27,7 +27,6 @@ import logo from './../../assets/image/logo2.png';
 import img from './../../assets/image/img.png';
 import showEye from './../../assets/image/eye.png';
 import hideEye from './../../assets/image/hideeye.jpg';
-import { API_URL } from './../../config/api';
 
 
 

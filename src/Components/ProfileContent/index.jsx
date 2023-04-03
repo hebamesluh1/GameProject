@@ -11,7 +11,6 @@ import PassInput from '../PassInput';
 
 
 import './style.css';
-// import { API_URL } from './../../config/api';
 
 
 

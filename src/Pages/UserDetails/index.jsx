@@ -4,7 +4,6 @@ import './style.css';
 import axios from "axios";
 import Bar from "../../Components/Bar";
 import Header from "../../sections/Header";
-import { API_URL } from './../../config/api';
 
 
 export default function UserDetails() {

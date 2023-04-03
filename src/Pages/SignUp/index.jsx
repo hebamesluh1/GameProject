@@ -28,7 +28,6 @@ import LogInBtn from '../../Components/LoginBtn';
 
 //style
 import './style.css';
-import { API_URL } from './../../config/api';
 
 
 export default class SignUp extends Component {
