@@ -9,5 +9,5 @@
 - sign up with a new account . 
 - logged in with ready account email:user@user.com , pass:user123
 ### you can logged in as an admin by :
-- logged in with email:admin@admin.com ,pass:admin123
-You can reach it by [live link](https://idyllic-treacle-d280ec.netlify.app/)
+- logged in with email:admin@admin.com , pass:admin123
+- You can reach it by [live link](https://idyllic-treacle-d280ec.netlify.app/)
