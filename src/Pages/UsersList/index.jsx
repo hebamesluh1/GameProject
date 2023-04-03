@@ -6,7 +6,6 @@ import details from '../../assets/image/details.png';
 import './style.css';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
-import { API_URL } from './../../config/api';
 
 export default class UserList extends Component {
     state = {
@@ -20,7 +19,7 @@ export default class UserList extends Component {
     async componentDidMount() {
         try {
         const res = await axios.get(
-            `${API_URL}/users`,
+            `https://react-tt-api.onrender.com/api/users`,
             {
             headers: {
                 Authorization: `Bearer ${this.token}`,
