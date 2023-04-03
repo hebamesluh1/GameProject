@@ -10,4 +10,4 @@
 - logged in with ready account email:user@user.com , pass:user123
 ### you can logged in as an admin by :
 - logged in with email:admin@admin.com , pass:admin123
-- You can reach it by [live link](https://idyllic-treacle-d280ec.netlify.app/)
+- You can reach it by [live link](https://game-dashboard-heba.netlify.app/)
