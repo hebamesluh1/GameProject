@@ -73,7 +73,7 @@ export default class LogIn extends Component {
             { abortEarly: false }
         )
         .then(async ({ email, password }) => {
-            const res = await axios.post(`${API_URL}users/login`, {
+            const res = await axios.post(`https://react-tt-api.onrender.com/api/users/login`, {
                 email: email,
                 password,
             });

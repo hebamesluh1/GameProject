@@ -20,7 +20,7 @@ export default class UserList extends Component {
     async componentDidMount() {
         try {
         const res = await axios.get(
-            `${API_URL}users`,
+            `${API_URL}/users`,
             {
             headers: {
                 Authorization: `Bearer ${this.token}`,

@@ -11,7 +11,7 @@ import PassInput from '../PassInput';
 
 
 import './style.css';
-import { API_URL } from './../../config/api';
+// import { API_URL } from './../../config/api';
 
 
 
@@ -27,7 +27,7 @@ export default class ProfileContent extends Component {
 
     async componentDidMount() {
     const token = localStorage.getItem("token");
-    const res = await axios.get(`${API_URL}users/profile`, {
+    const res = await axios.get(`https://react-tt-api.onrender.com/users/profile`, {
         headers: {
         Authorization: `Bearer ${token}`,
         },

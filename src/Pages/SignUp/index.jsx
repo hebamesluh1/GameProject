@@ -103,7 +103,7 @@ export default class SignUp extends Component {
         )
         .then(async () => {
             const res = await axios.post(
-                `${API_URL}users/signup`,
+                `https://react-tt-api.onrender.com/api/users/signup`,
                 {
                 name: this.state.name,
                 email: this.state.email,
