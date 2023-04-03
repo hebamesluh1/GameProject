@@ -27,7 +27,7 @@ export default class ProfileContent extends Component {
 
     async componentDidMount() {
     const token = localStorage.getItem("token");
-    const res = await axios.get(`https://react-tt-api.onrender.com/users/profile`, {
+    const res = await axios.get(`https://react-tt-api.onrender.com/api/users/profile`, {
         headers: {
         Authorization: `Bearer ${token}`,
         },
