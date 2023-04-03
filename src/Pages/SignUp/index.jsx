@@ -28,6 +28,7 @@ import LogInBtn from '../../Components/LoginBtn';
 
 //style
 import './style.css';
+import { API_URL } from './../../config/api';
 
 
 export default class SignUp extends Component {
@@ -102,7 +103,7 @@ export default class SignUp extends Component {
         )
         .then(async () => {
             const res = await axios.post(
-                "https://react-tt-api.onrender.com/api/users/signup",
+                `${API_URL}users/signup`,
                 {
                 name: this.state.name,
                 email: this.state.email,

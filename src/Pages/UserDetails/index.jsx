@@ -4,6 +4,7 @@ import './style.css';
 import axios from "axios";
 import Bar from "../../Components/Bar";
 import Header from "../../sections/Header";
+import { API_URL } from './../../config/api';
 
 
 export default function UserDetails() {
@@ -23,7 +24,7 @@ class Details extends Component {
     async componentDidMount() {
         const token = localStorage.getItem("token");
         try {
-        const res = await axios.get(`https://react-tt-api.onrender.com/api/users/${this.props.id}`, {
+        const res = await axios.get(`${API_URL}users/${this.props.id}`, {
             headers: {
             Authorization: `Bearer ${token}`,
             },
