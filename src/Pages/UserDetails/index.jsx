@@ -4,6 +4,7 @@ import './style.css';
 import axios from "axios";
 import Bar from "../../Components/Bar";
 import Header from "../../sections/Header";
+import Spinner from "../../Components/Spinner";
 
 
 export default function UserDetails() {
@@ -51,7 +52,7 @@ class Details extends Component {
                     margin:"20% 40%",
                     fontSize:"25px"
                     }}>
-                    "Loading..."
+                    <Spinner/>
                     </div>
                     ):(
                         <table>
