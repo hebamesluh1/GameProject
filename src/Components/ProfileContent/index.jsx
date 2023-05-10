@@ -11,6 +11,7 @@ import PassInput from '../PassInput';
 
 
 import './style.css';
+import Spinner from '../Spinner';
 
 
 
@@ -50,7 +51,7 @@ export default class ProfileContent extends Component {
                     margin:"20% 40%",
                     fontSize:"25px"
                 }}>
-                    "Loading..."
+                    <Spinner/>
                 </div>
                 ) : (
             <div className='profile-box'>
