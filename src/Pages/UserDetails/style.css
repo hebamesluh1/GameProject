@@ -7,16 +7,17 @@
     width: 50%;
     margin: 3% auto;
     font-size: 25px;
-    border-collapse: collapse;
-}
-.user-details tr:hover{
-    background-color: rgb(201, 201, 201);
+    border-radius: 20px;
+    background: #eee;
 }
 .user-details th{
     width: 50%;
-    border:1px solid #ddd
 }
 .user-details td{
     text-align: center;
-    border:1px solid #ddd
+}
+.back-btn{
+    color: #8692a6;
+    font-weight: bold;
+    padding:20px;
 }
